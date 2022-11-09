@@ -10,13 +10,14 @@
     <Button
         android:id="@+id/button"
         android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:onClick="HelloNopen"
-        android:text="@string/btnHello"
+        android:layout_height="65dp"
+        android:onClick="FirstActivity"
+        android:text="First Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -34,12 +35,39 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello guys"
+        android:layout_width="215dp"
+        android:layout_height="81dp"
+        android:text="Application Development"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="413dp"
+        android:layout_height="64dp"
+        android:onClick="ThreadedActivity"
+        android:text="Threaded Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="403dp"
+        android:layout_height="58dp"
+        android:onClick="RegistrationActivity"
+        android:text="Registration Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="253dp" />
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.071" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

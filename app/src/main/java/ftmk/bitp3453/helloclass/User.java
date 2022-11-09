@@ -1,8 +1,17 @@
 package ftmk.bitp3453.helloclass;
+
 import java.io.Serializable;
-public class User implements Serializable{
-    public User(String strFullName, String strAddress, String strPwd, String strBirth, String strGender, String strEmail) {
-        super();
+
+public class User implements Serializable {
+
+    public String fullname, pwd, address, email, birthdate, gender;
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPwd() {
@@ -45,22 +54,14 @@ public class User implements Serializable{
         this.gender = gender;
     }
 
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
+    public User(String fullname, String pwd, String address, String email, String birthdate, String gender) {
         this.fullname = fullname;
+        this.pwd = pwd;
+        this.address = address;
+        this.email = email;
+        this.birthdate = birthdate;
+        this.gender = gender;
+
+
     }
-
-    String pwd;
-    String address;
-    String email;
-    String birthdate;
-    String gender;
-    String fullname;
-
-
-
-
 }

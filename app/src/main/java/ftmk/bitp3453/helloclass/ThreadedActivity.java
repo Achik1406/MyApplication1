@@ -1,7 +1,5 @@
 package ftmk.bitp3453.helloclass;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ThreadedActivity extends AppCompatActivity {
 
@@ -28,22 +28,26 @@ public class ThreadedActivity extends AppCompatActivity {
         tv1.setText("Hello There!!");
     }
 
-    public void fnTakePic(View Vw)
+
+    public void fnTakePic(View vw)
     {
-        Runnable run = new Runnable() {
+        Runnable run =new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent (android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                // 1000 auto-generated method stub
 
-
+                Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,0);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //1000 auto-generated method stub
                         tv1.setText(tv1.getText().toString() + ".... \nThis Is Your Picture Hehehehe");
                     }
                 });
             }
         };
+
         Thread thr = new Thread(run);
         thr.start();
     }
@@ -54,5 +58,10 @@ public class ThreadedActivity extends AppCompatActivity {
 
         Bitmap bp = (Bitmap) data.getExtras().get("data");
         iv.setImageBitmap(bp);
+    }
+
+    public void BackToMain(View view)
+    {
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

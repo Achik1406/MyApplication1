@@ -1,13 +1,13 @@
 package ftmk.bitp3453.helloclass;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -36,7 +36,7 @@ public class FirstActivity extends AppCompatActivity {
         txtvwAge.setText("Helloooo and Welcome " + strName);
     }
 
-    public void GoToThreadActivity(View view) {
-        startActivity(new Intent(this,ThreadedActivity.class));
+    public void BackToMain(View view) {
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

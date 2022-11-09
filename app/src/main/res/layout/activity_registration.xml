@@ -7,13 +7,15 @@
     tools:context=".RegistrationActivity">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
         tools:context=".RegistrationActivity"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-16dp">
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="148dp">
+
 
         <EditText
             android:id="@+id/edtFullName"
@@ -57,6 +59,7 @@
             android:inputType="textMultiLine" />
 
         <RadioGroup
+            tools:viewBindingIgnore="true"
             android:id="@+id/rgGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,7 +93,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
+            android:onClick="GoToThreadActivity"
             android:src="@android:drawable/ic_input_add" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

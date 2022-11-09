@@ -18,8 +18,18 @@ public class MainActivity extends AppCompatActivity {
         //txtVw1 = findViewById(R.id.textView);
     }
 
-    public void HelloNopen(View view) {
+    public void FirstActivity(View view) {
 
         startActivity(new Intent(this,FirstActivity.class));
+    }
+
+    public void ThreadedActivity(View view){
+        startActivity(new Intent(this,ThreadedActivity.class));
+
+    }
+
+    public void RegistrationActivity(View view){
+        startActivity(new Intent(this,RegistrationActivity.class));
+
     }
 }
