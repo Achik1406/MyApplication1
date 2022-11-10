@@ -38,8 +38,16 @@ public class RegistrationActivity extends AppCompatActivity {
         binding.edtBirthdate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             @Override
-            public void onFocusChange(View view, boolean b) {
-                fnInvokeDatePicker();
+            public void onFocusChange(View view, boolean b)
+            {
+                if(b) {
+                    fnInvokeDatePicker();
+                }
+                if(!b)
+                {
+                    fnFormValidaton();
+                }
+
             }
 
         });
@@ -51,10 +59,14 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-       binding.fabAddUser.setOnClickListener(this::fnAddUser);
+        binding.fabAddUser.setOnClickListener(this::fnAddUser);
 
 
     }
+
+    private void fnFormValidaton() {
+    }
+
     private TextWatcher RegTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -83,10 +95,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void fnInvokeDatePicker()
     {
-         final Calendar cldr = Calendar.getInstance();
-         int day = cldr.get(Calendar.DAY_OF_MONTH);
-         int month = cldr.get(Calendar.MONTH);
-         int year = cldr.get(Calendar.YEAR);
+        final Calendar cldr = Calendar.getInstance();
+        int day = cldr.get(Calendar.DAY_OF_MONTH);
+        int month = cldr.get(Calendar.MONTH);
+        int year = cldr.get(Calendar.YEAR);
         // date picker dialog
 
         datePicker = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener() {

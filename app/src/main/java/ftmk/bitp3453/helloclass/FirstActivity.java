@@ -19,6 +19,7 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+
         txtvwAge = (TextView) findViewById(R.id.txtvwAge);
         edtName = (EditText) findViewById(R.id.edtTxtName);
         edtYear = (EditText) findViewById(R.id.edtYear);
@@ -33,7 +34,8 @@ public class FirstActivity extends AppCompatActivity {
     public void fnGreet(View vw)
     {
         String strName = edtName.getText().toString();
-        txtvwAge.setText("Helloooo and Welcome " + strName);
+        String Age = edtYear.getText().toString();
+        txtvwAge.setText("Helloooo and Welcome " + strName );
     }
 
     public void BackToMain(View view) {
