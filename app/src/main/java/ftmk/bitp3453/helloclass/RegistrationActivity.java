@@ -127,8 +127,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         User user = new User(strFullName,strAddress,strPwd,strBirth,strEmail,strGender);
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(USER_KEY, user.fullname + "\n\n" + user.pwd + "\n\n" + user.email + "\n\n"
-                + user.birthdate + "\n\n" + user.address + "\n\n" + user.gender);
+        intent.putExtra("objUser", user);
         startActivity(intent);
     }
 }

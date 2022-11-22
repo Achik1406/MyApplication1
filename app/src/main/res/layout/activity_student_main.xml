@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".StudentMainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:context=".StudentMainActivity">
+        tools:context=".StudentMainActivity"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="97dp">
 
         <EditText
             android:id="@+id/edtFullName"
@@ -30,6 +30,7 @@
             android:ems="10"
             android:hint="Your Student Number"
             android:inputType="textPersonName" />
+
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
@@ -37,6 +38,7 @@
             android:ems="10"
             android:hint="your_email@utem.edu.my"
             android:inputType="textEmailAddress" />
+
         <EditText
             android:id="@+id/edtBirthdate"
             android:layout_width="match_parent"
@@ -44,6 +46,7 @@
             android:ems="10"
             android:hint="Your birthdate"
             android:inputType="date" />
+
         <RadioGroup
             android:id="@+id/rgGender"
             android:layout_width="match_parent"
@@ -88,14 +91,15 @@
             android:id="@+id/fabAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:clickable="true"
-            app:srcCompat="@android:drawable/ic_input_add"
-            android:layout_gravity="center"/>
+            app:srcCompat="@android:drawable/ic_input_add" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvStud"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
 
     </LinearLayout>
 

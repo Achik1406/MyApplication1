@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class FirstActivity extends AppCompatActivity {
 
     TextView txtvwAge;
     EditText edtName,edtYear;
     Button btnClick;
+    int year;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,9 @@ public class FirstActivity extends AppCompatActivity {
         txtvwAge = (TextView) findViewById(R.id.txtvwAge);
         edtName = (EditText) findViewById(R.id.edtTxtName);
         edtYear = (EditText) findViewById(R.id.edtYear);
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+
     }
     public void fnThreadActivity(View Vw)
     {
@@ -35,7 +41,10 @@ public class FirstActivity extends AppCompatActivity {
     {
         String strName = edtName.getText().toString();
         String Age = edtYear.getText().toString();
-        txtvwAge.setText("Helloooo and Welcome " + strName );
+        int i =Integer.parseInt(Age);
+        int age = year-i;
+
+        txtvwAge.setText("Helloooo and Welcome " + strName +". You age is : "+ age);
     }
 
     public void BackToMain(View view) {

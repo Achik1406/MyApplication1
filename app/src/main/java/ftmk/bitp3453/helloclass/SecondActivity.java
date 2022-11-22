@@ -16,7 +16,9 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         setTitle("Second Activity");
         movedInformation = findViewById(R.id.copyInfo);
-        Serializable user = getIntent().getSerializableExtra(RegistrationActivity.USER_KEY);
-        movedInformation.setText("This is your Information \n\n\n" + user);
+        User user = (User) getIntent().getSerializableExtra("objUser");
+        movedInformation.setText("This is your Information \n\n\n" + user.getFullname() + "\n\n" +
+                user.getPwd() + "\n\n" + user.getEmail() + "\n\n" + user.getBirthdate() + "\n\n" +
+                user.getAddress() + "\n\n" + user.getGender());
     }
 }

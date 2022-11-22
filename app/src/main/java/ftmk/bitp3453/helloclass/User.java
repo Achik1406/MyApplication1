@@ -5,6 +5,14 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     public String fullname, pwd, address, email, birthdate, gender;
+    public User(String fullname, String pwd, String address, String email, String birthdate, String gender) {
+        this.fullname = fullname;
+        this.pwd = pwd;
+        this.address = address;
+        this.email = email;
+        this.birthdate = birthdate;
+        this.gender = gender;
+    }
 
     public String getFullname() {
         return fullname;
@@ -54,14 +62,5 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public User(String fullname, String pwd, String address, String email, String birthdate, String gender) {
-        this.fullname = fullname;
-        this.pwd = pwd;
-        this.address = address;
-        this.email = email;
-        this.birthdate = birthdate;
-        this.gender = gender;
 
-
-    }
 }

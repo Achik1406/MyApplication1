@@ -32,4 +32,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,RegistrationActivity.class));
 
     }
+    public void StudentMainActivity(View view){
+        startActivity(new Intent(this,StudentMainActivity.class));
+    }
 }
