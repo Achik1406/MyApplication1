@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,8 +41,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="54dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="54dp" />
 
     <Button
         android:id="@+id/button4"
@@ -60,8 +59,8 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="403dp"
-        android:layout_height="58dp"
+        android:layout_width="410dp"
+        android:layout_height="57dp"
         android:onClick="RegistrationActivity"
         android:text="Registration Activity"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,17 +71,27 @@
 
     <Button
         android:id="@+id/studentMain"
-        android:layout_width="412dp"
-        android:layout_height="59dp"
+        android:layout_width="413dp"
+        android:layout_height="61dp"
         android:layout_marginTop="20dp"
         android:onClick="StudentMainActivity"
         android:text="Student Main Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.034" />
+
+    <Button
+        android:id="@+id/navi"
+        android:layout_width="413dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="32dp"
+        android:onClick="NavigationView"
+        android:text="navigationView"
+        app:layout_constraintTop_toBottomOf="@+id/studentMain"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

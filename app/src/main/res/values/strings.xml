@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">HelloClass</string>
     <string name="btnHello">Hello</string>
+    <string name="nav_open">open</string>
+    <string name="nav_close">close</string>
 
     <string-array name="state_arrays">
         <item>Melaka</item>
