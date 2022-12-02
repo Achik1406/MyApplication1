@@ -2,32 +2,29 @@ package ftmk.bitp3453.helloclass;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.Calendar;
 
-public class FirstActivity extends AppCompatActivity {
+import ftmk.bitp3453.helloclass.databinding.ActivityFirstBinding;
+
+public class FirstActivity extends Drawer_base{
 
     TextView txtvwAge;
     EditText edtName,edtYear;
     Button btnClick;
     int year;
+
+    ActivityFirstBinding activityFirstBinding;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first);
+        activityFirstBinding =activityFirstBinding.inflate(getLayoutInflater());
+        setContentView(activityFirstBinding.getRoot());
+        allocateActivityTitle("FirstActivity");
 
 
         txtvwAge = (TextView) findViewById(R.id.txtvwAge);
@@ -37,6 +34,8 @@ public class FirstActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
 
     }
+
+
     public void fnThreadActivity(View Vw)
     {
         Intent intent = new Intent(this , ThreadedActivity.class);
@@ -57,4 +56,5 @@ public class FirstActivity extends AppCompatActivity {
     public void BackToMain(View view) {
         startActivity(new Intent(this,MainActivity.class));
     }
+
 }

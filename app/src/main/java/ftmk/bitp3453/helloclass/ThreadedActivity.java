@@ -8,18 +8,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import ftmk.bitp3453.helloclass.databinding.ActivityThreadedBinding;
 
-public class ThreadedActivity extends AppCompatActivity {
+public class ThreadedActivity extends Drawer_base {
 
-
+    ActivityThreadedBinding activityThreadedBinding;
     ImageView iv;
     TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_threaded);
+        activityThreadedBinding =activityThreadedBinding.inflate(getLayoutInflater());
+        setContentView(activityThreadedBinding.getRoot());
+        allocateActivityTitle("ActivityThread");
 
 
         //get variabel from previous activity
