@@ -1,18 +1,16 @@
 package ftmk.bitp3453.helloclass;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Calendar;
 import java.util.Vector;
@@ -20,7 +18,6 @@ import java.util.Vector;
 import ftmk.bitp3453.helloclass.databinding.ActivityStudentMainBinding;
 
 public class StudentMainActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
     private ActivityStudentMainBinding binding;
     private Student student;
     LinearLayout linearLayout;
@@ -75,6 +72,7 @@ public class StudentMainActivity extends AppCompatActivity {
         helper.attachToRecyclerView(binding.rcvStud);
 
     }
+
     ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -93,6 +91,7 @@ public class StudentMainActivity extends AppCompatActivity {
     }
 
     private void fnInvokeDatePicker()
+
     {
         final Calendar cldr = Calendar.getInstance();
         int day = cldr.get(Calendar.DAY_OF_MONTH);
