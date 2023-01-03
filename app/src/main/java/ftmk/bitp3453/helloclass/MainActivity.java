@@ -38,4 +38,8 @@ public class MainActivity extends Drawer_base {
         startActivity(new Intent(this,SecondActivityCam.class));
     }
 
+    public void SearchStudentActivity(View view){
+        startActivity(new Intent(this,SearchStudentActivity.class));
+    }
+
 }
