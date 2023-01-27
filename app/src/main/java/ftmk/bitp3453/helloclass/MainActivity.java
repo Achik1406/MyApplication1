@@ -41,5 +41,8 @@ public class MainActivity extends Drawer_base {
     public void SearchStudentActivity(View view){
         startActivity(new Intent(this,SearchStudentActivity.class));
     }
+    public void GetRestAPI(View view){
+        startActivity(new Intent(this,GetRestAPI.class));
+    }
 
 }

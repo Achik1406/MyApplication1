@@ -2,6 +2,7 @@ package ftmk.bitp3453.helloclass;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
@@ -26,8 +27,8 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import ftmk.bitp3453.helloclass.databinding.ActivityStudentMainBinding;
 
@@ -35,8 +36,9 @@ public class StudentMainActivity extends AppCompatActivity {
     private ActivityStudentMainBinding binding;
     private Student student;
     LinearLayout linearLayout;
+    private DbStudent dbStudent;
 
-    private Vector<Student> students;
+    private List<Student> students;
     private StudentAdapter adapter;
 
     private DatePickerDialog datePicker;
@@ -76,7 +78,10 @@ public class StudentMainActivity extends AppCompatActivity {
             }
         });
 
-        students = new Vector<>();
+        //students = new Vector<>();
+
+        dbStudent = new DbStudent(this);
+        students = dbStudent.fnGetAllExpenses();
         adapter = new StudentAdapter(getLayoutInflater(),students);
 
 
@@ -89,42 +94,47 @@ public class StudentMainActivity extends AppCompatActivity {
     }
 
     private void fnAddToREST(View view) {
-        String strURL = "http://192.168.0.4/RESTAPI/rest_api.php";
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, strURL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+        String fullname = binding.edtFullName.getText().toString();
+        String studNo = binding.edtStudNum.getText().toString();
+        String email = binding.edtEmail.getText().toString();
+        String birth = binding.edtBirthdate.getText().toString();
+        String gender = "";
+        String state = binding.spnState.getSelectedItem().toString();
 
-                try {
+        if (binding.rbMale.isChecked())
+            gender = binding.rbMale.getText().toString();
+        else if (binding.rbFemale.isChecked())
+            gender = binding.rbFemale.getText().toString();
 
-                    JSONObject jsonObject = new JSONObject(response);
-                    String success = jsonObject.getString("respond");
+        student = new Student(fullname, studNo, email, gender, birth, state);
 
-                    if(success.equals("Information Saved!")){
+        students.add(student);
+        adapter.notifyItemInserted(students.size());
 
-                        Toast.makeText(getApplicationContext(), "Respond from server: " +
-                                jsonObject.getString("respond"), Toast.LENGTH_SHORT).show();
+        String strURL = "http://192.168.0.13/RESTAPI/rest_api.php";
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, strURL,
+                new Response.Listener<String>(){
 
+                    public void onResponse(String response) {
+                        JSONObject jsonObject = null;
+                        Log.e("error:", response);
+                        try {
+                            jsonObject = new JSONObject(response);
+                            Toast.makeText(getApplicationContext(), "Respond from server" +
+                                    jsonObject.getString("respond"), Toast.LENGTH_SHORT).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
+                }, new Response.ErrorListener() {
             public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("error:", error.toString());
             }
-
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-
+        })
+        {
+            protected Map<String, String> getParams() throws AuthFailureError{
                 String fullname = binding.edtFullName.getText().toString();
                 String studNo = binding.edtStudNum.getText().toString();
                 String email = binding.edtEmail.getText().toString();
@@ -132,38 +142,25 @@ public class StudentMainActivity extends AppCompatActivity {
                 String gender = "";
                 String state = binding.spnState.getSelectedItem().toString();
 
-                if(binding.rbMale.isChecked())
+                if (binding.rbMale.isChecked())
                     gender = binding.rbMale.getText().toString();
-                else if(binding.rbFemale.isChecked())
+                else if (binding.rbFemale.isChecked())
                     gender = binding.rbFemale.getText().toString();
 
-                student = new Student(fullname,studNo,email,gender,birth, state);
-
-                students.add(student);
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        adapter.notifyItemInserted(students.size());
-                    }
-                });
-
-
-                Map<String, String> params = new HashMap< >();
+                Map<String, String> params = new HashMap<>();
                 params.put("selectFn", "fnSaveData");
                 params.put("studName", fullname);
                 params.put("studGender", gender);
+                params.put("studEmail" , email);
                 params.put("studDob", birth);
                 params.put("studNo", studNo);
                 params.put("studState", state);
                 return params;
-
-
             }
-
         };
         requestQueue.add(stringRequest);
+        dbStudent = new DbStudent(this);
+        dbStudent.fnInsertExpense(student);
     }
 
 
@@ -218,10 +215,16 @@ public class StudentMainActivity extends AppCompatActivity {
         else if(binding.rbFemale.isChecked())
             gender = binding.rbFemale.getText().toString();
 
-        student = new Student(fullname,studNo,email,gender,birth, state);
+        student = new Student();
 
         students.add(student);
         adapter.notifyItemInserted(students.size());
+    }
+
+    private void deleteStudent(Student student){
+        students.remove(student);
+        adapter.notifyDataSetChanged();
+
     }
 
 

@@ -1,23 +1,29 @@
 package ftmk.bitp3453.helloclass;
 
 public class Student {
-    private String strFullName,strStudNo,strEmail,strGender,strBirthdate,strState;
+    private String strFullname, strStudNo, strEmail, strGender, strBirthdate, strState;
 
-    public Student(String strFullName, String strStudNo, String strEmail, String strGender, String strBirthdate, String strState) {
-        this.strFullName = strFullName;
+    public Student(String strFullname, String strStudNo, String strEmail, String strGender,
+                   String strBirthdate, String strState){
+
+        this.strFullname = strFullname;
         this.strStudNo = strStudNo;
         this.strEmail = strEmail;
         this.strGender = strGender;
         this.strBirthdate = strBirthdate;
         this.strState = strState;
+
+    }
+
+    public Student() {
     }
 
     public String getStrFullName() {
-        return strFullName;
+        return strFullname;
     }
 
-    public void setStrFullName(String strFullName) {
-        this.strFullName = strFullName;
+    public void setStrFullName(String strFullname) {
+        this.strFullname = strFullname;
     }
 
     public String getStrStudNo() {
@@ -59,4 +65,5 @@ public class Student {
     public void setStrState(String strState) {
         this.strState = strState;
     }
+
 }
