@@ -84,13 +84,10 @@ public class StudentMainActivity extends AppCompatActivity {
         students = dbStudent.fnGetAllExpenses();
         adapter = new StudentAdapter(getLayoutInflater(),students);
 
-
         binding.rcvStud.setAdapter(adapter);
         binding.rcvStud.setLayoutManager(new LinearLayoutManager(this));
-
         ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(binding.rcvStud);
-
     }
 
     private void fnAddToREST(View view) {
@@ -174,6 +171,7 @@ public class StudentMainActivity extends AppCompatActivity {
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
 
             students.remove(viewHolder.getAdapterPosition());
             adapter.notifyDataSetChanged();
